@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>NBA Quiz</title>
+</head>
+
+<body>
+  <header>
+    <a href="./highscores.html" class="link" id="highscores-link">Highest Scores</a>
+    <div id="timer">Time Countdown = <span id="timeLeft"></span></div>
+  </header>
+
+    <div id="startScreen">
+        <h1>NBA GREATS</h1>
+        <p> The clock will be running! Don't get penalized because
+            you allowed your time to run out or because you've guessed
+            incorrectly. Be fast, but accurate.
+        </p>
+      <button type="button" id="start-btn">Jump Ball 🏀</button>
+    </div>
+
+    <div id="quizScreen" style="display: none;">
+        <div id="question"><p></p></div>
+        <div>
+            <div class="choices" id="A" onclick="checkAnswer('A')"><A></div>
+            <div class="choices" id="B" onclick="checkAnswer('B')"><B></div>
+            <div class="choices" id="C" onclick="checkAnswer('C')"><C></div>
+            <div class="choices" id="D" onclick="checkAnswer('D')"><D></div>
+        </div> 
+    </div>
+    <div id="highscoreScreen" style="display: none">
+    <h2>You Scored</h2>
+    <div id="score"></div>
+    <div id="inputHead">Enter Initials</div>
+    <input type="text" maxlength="3" placeholder="XXX"></input>
+    <div id="buttonDiv">
+        <button type="button" id="submitScore">Submit Your Score</button>
+        <button type="button" id="retry">Retry Quiz</button>
+    </div>
+    </div>
+<script src="./assets/js/script.js"></script>
+</body>
+</html>
