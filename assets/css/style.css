@@ -1,0 +1,99 @@
+body {
+    background-color: lightsalmon;
+    font-family: Arial, sans-serif;
+    margin: 1px;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: bisque;
+    padding: 15px;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    margin: 1;
+}
+
+#startScreen {
+    text-align: center;
+    padding: 20px;
+}
+#start-btn {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+#quizScreen {
+    text-align: center;
+    display: none;
+    padding: 20px;
+}
+
+#question {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#timer {
+    padding: 5px 3px;
+    border-style: double;
+    border-radius: 5px;
+}
+
+.choices {
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+#highscoreScreen {
+    text-align: center;
+    display: none;
+    padding: 20px;
+}
+
+#score {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#retry,
+#submitScore {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;   
+}
+
+#retry {
+    background-color: white;
+    color:black;
+}
+
+#scoreList {
+    list-style: none;
+    padding: 0;
+}
+
+#scoreList li {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
