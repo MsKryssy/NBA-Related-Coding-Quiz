@@ -5,11 +5,15 @@ body {
     padding: 1px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 header {
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: bisque;
-    padding: 15px;
+    width: 50%;
     text-align: center;
 }
 
@@ -19,9 +23,12 @@ header h1 {
 }
 
 #startScreen {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     padding: 20px;
 }
+
 #start-btn {
     background-color: black;
     color: white;
@@ -32,10 +39,64 @@ header h1 {
     border-radius: 5px;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color:bisque;
+    text-decoration: underline;
+}
+
+#highscores-link {
+    color: brown;
+    text-decoration: none;
+    padding: 5px 3px;
+    border-style: double;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#highscores-link:hover {
+    color: burlywood;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    text-decoration: none;
+    border-color: brown;
+}
+
+#startScreen p {
+    color: black;
+    padding: 15px 5px;
+    font-size: 16px;
+}
+
+#startScreen button {
+    color: burlywood;
+    padding: 4px;
+    border-style: double;
+    border-radius: 5px;
+    border-color: beige;
+    font-size: 18px;
+}
+
 #quizScreen {
     text-align: center;
-    display: none;
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+    color: antiquewhite;
+}
+
+#quizScreen h1 {
+    color: lightsalmon;
+    padding: 5px 5px 9px 5px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: bisque;
+    font-size: 30px;
 }
 
 #question {
@@ -49,26 +110,66 @@ header h1 {
     border-radius: 5px;
 }
 
+#timer, #timeLeft {
+    color: black;
+    font-size: 15px;
+}
+
 .choices {
+    display: inline-block;
+    width: 150px;
+    text-align: center;
     background-color: white;
     color: black;
     font-size: 18px;
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
-    border: none;
+    border: 1px solid;
     border-radius: 5px;
 }
 
 #highscoreScreen {
-    text-align: center;
-    display: none;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#highscoreScreen h2 {
+    font-size: 25px;
+    padding: 5px;
 }
 
 #score {
     font-size: 24px;
     margin-bottom: 20px;
+    border-style: dotted;
+    border-color: antiquewhite;
+    border-radius: 10px;
+    margin: 10px 0px 10px 0px;
+    padding: 2px 5px 3px 5px;
+}
+
+#inputHead {
+    color: black;
+    padding: 0px 0px 8px 0px;
+}
+
+#highscoreScreen input {
+    background-color: lightsalmon;
+    color: bisque;
+    width: 50px;
+    margin: 0px 0px 8px 0px;
+}
+
+#highscoreScreen div button {
+    border-radius: 5px;
+    border-color: burlywood;
+    border-style: solid;
+}
+
+#highscoreScreen div button:active {
+    border-color: black;
 }
 
 #retry,
@@ -89,11 +190,24 @@ header h1 {
 }
 
 #scoreList {
+    margin: 5px;
+    font-size: 18px;
     list-style: none;
-    padding: 0;
+    color: black;
 }
 
 #scoreList li {
     font-size: 20px;
     margin-bottom: 10px;
+}
+
+#hsLink {
+    font-size: 20px;
+    margin: 5px;
+    color: brown;
+    text-decoration: none;
+}
+
+#hsLink:hover::after {
+    content: "⛹🏻"
 }
