@@ -15,4 +15,4 @@ Can be used to test your NBA player and team knowledge with the latest statistic
 
 https://mskryssy.github.io/NBA-Related-Coding-Quiz/
 
-[!image] 
+[!image](NBA-Related-Coding-Quiz/NBA-Quiz.png) 
