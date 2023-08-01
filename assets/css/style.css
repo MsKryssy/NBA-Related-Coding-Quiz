@@ -38,7 +38,7 @@ header h1 {
     padding: 20px;
 }
 
-#start-btn {
+#start {
     background-color: var(--f);
     color: white;
     font-size: 20px;

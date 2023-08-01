@@ -1,36 +1,3 @@
-var startButtonEl = document.getElementById('start-btn');
-var timerEl = document.getElementById('timer');
-var timeLeftEl = document.getElementById('timeLeft');
-var totalTime = 75;
-var score = 0;
-var timeLeft;
-var timeInterval;
-
-var startScreenEl = document.getElementById('startScreen');
-var quizScreenEl = document.getElementById('quizScreen');
-var highscoreScreenEl = document.getElementById('highscoreScreen');
-
-var questionEl = document.getElementById('question');
-var answerA = document.getElementById('A');
-var answerB = document.getElementById('B');
-var answerC = document.getElementById('C');
-var answerD = document.getElementById('D');
-
-var retryButtonEl = document.getElementById('retry');
-var submitScoreButtonEl = document.getElementById('submitScore');
-var scoreEl = document.getElementById('score');
-
-var lastQuestion = questions.length - 1;
-var runningQuestion = 0;
-var initialsInput = document.querySelector('input');
-var scoreList = document.getElementById('scoreList');
-var highScoresList = [];
-
-// add in event listeners for functionality
-startButtonEl.addEventListener('click', startQuiz);
-retryButtonEl.addEventListener('click', retry);
-submitScoreButtonEl.addEventListener('click', submit);
-
 // here is the questions variable setup
 var questions = [
     {
@@ -76,7 +43,7 @@ var questions = [
     answerD : "Los Angeles Lakers",
     answer : "C"
     }, {
-    question : "Who is theNBA's all-time leader in assists?",
+    question : "Who is the NBA's all-time leader in assists?",
     answerA : "John Stockton",
     answerB : "Magic Johnson",
     answerC : "Steve Nash",
@@ -105,8 +72,55 @@ var questions = [
     answer : "A"
     },
 ]
+
+var startButtonEl = document.getElementById('start');
+var timerEl = document.getElementById('timer');
+var timeLeftEl = document.getElementById('timeLeft');
+var totalTime = 45;
+var score = 0;
+var timeLeft;
+var timeInterval;
+
+var startScreenEl = document.getElementById('startScreen');
+var quizScreenEl = document.getElementById('quizScreen');
+var highscoreScreenEl = document.getElementById('highscoreScreen');
+
+var questionEl = document.getElementById('question');
+var answerA = document.getElementById('A');
+var answerB = document.getElementById('B');
+var answerC = document.getElementById('C');
+var answerD = document.getElementById('D');
+
+var retryButtonEl = document.getElementById('retry');
+var submitScoreButtonEl = document.getElementById('submitScore');
+var scoreEl = document.getElementById('score');
+
+var lastQuestion = questions.length - 1;
+var runningQuestion = 0;
+var initialsInput = document.querySelector('input');
+var scoreList = document.getElementById('scoreList');
+var highScoresList = [];
+
+answerA.addEventListener('click', function() {
+    checkAnswer('A');
+});
+answerB.addEventListener('click', function() {
+    checkAnswer('B');
+});
+answerC.addEventListener('click', function() {
+    checkAnswer('C');
+});
+answerD.addEventListener('click', function() {
+    checkAnswer('D');
+});
+
+// add in event listeners for functionality
+startButtonEl.addEventListener('click', startQuiz);
+retryButtonEl.addEventListener('click', retry);
+submitScoreButtonEl.addEventListener('click', submit);
+
 // this will give a record of the previous scores
-function recordScores() {
+function recordScore() {
     highScoresList = JSON.parse(localStorage.getItem("highScoresList"));
     if (!highScoresList) {
         highScoresList = [];
@@ -114,7 +128,7 @@ function recordScores() {
 };
 // start the quiz functions here
 function startQuiz() {
-    recordScores();
+    recordScore();
     startScreenEl.style.display = "none";
     quizScreenEl.style.display = "block";
     runningQuestion = 0;
@@ -148,27 +162,38 @@ function startTimer() {
 
 // user answers functionality
 function checkAnswer(answer) {
-    if (answer == questions[runningQuestion].answer) {
+    if (answer === questions[runningQuestion].answer) {
         // correct answer will add points
         score += 10;
     } else {
-        // wrong answer will deduct time from the timer
-        timeLeft -= 15;
+        timeLeft -= 5;
         if (timeLeft < 0) {
             timeLeft = 0;
         }
     }
-    timeLeftEl.textContent = timeLeft;
-    if (runningQuestion < lastQuestion && timeLeft > 0) {
+       setTimeout(function() {
+        timeLeftEl.style.color = "";
         runningQuestion++;
-        renderQuestion();
-    } else {
-        timerEl.textContent = "Ball Game Over",
-        quizScreenEl.style.display = "none";
-        highscoreScreenEl.style.display = "block";
-        scoreRender();
+        if (runningQuestion <= lastQuestion) {
+            renderQuestion();
+        } else {
+            timerEl.textContent = "Ball Game Over",
+            quizScreenEl.style.display = "none";
+            highscoreScreenEl.style.display = "block";
+            scoreRender();
+            }
+       }, 1000);
+    return;
     }
-}
+    
+//     timeLeftEl.textContent = timeLeft;
+//     if (runningQuestion < lastQuestion && timeLeft > 0) {
+//         runningQuestion++;
+//         renderQuestion();
+//     } else {
+        
+//     }
+// }
 
 // renders the score page and the time left will be the score
 function scoreRender() {
@@ -191,7 +216,7 @@ function retry () {
 // submit score
 function submit() {
     var submitHighestScore = {
-        name: input.value, 
+        name: initialsInput.value, 
         score: timeLeft
     };
     highScoresList.push(submitHighestScore);
