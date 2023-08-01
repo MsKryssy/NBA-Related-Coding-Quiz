@@ -1,13 +1,14 @@
-var startScreen = document.getElementById('startScreen');
 var startButtonEl = document.getElementById('start-btn');
 var timerEl = document.getElementById('timer');
 var timeLeftEl = document.getElementById('timeLeft');
 var totalTime = 75;
+var score = 0;
 var timeLeft;
 var timeInterval;
 
-var quizScreen = document.getElementById('quizScreen');
-var highscoreScreen = document.getElementById('highscoreScreen');
+var startScreenEl = document.getElementById('startScreen');
+var quizScreenEl = document.getElementById('quizScreen');
+var highscoreScreenEl = document.getElementById('highscoreScreen');
 
 var questionEl = document.getElementById('question');
 var answerA = document.getElementById('A');
@@ -105,7 +106,7 @@ var questions = [
     },
 ]
 // this will give a record of the previous scores
-function recordScore() {
+function recordScores() {
     highScoresList = JSON.parse(localStorage.getItem("highScoresList"));
     if (!highScoresList) {
         highScoresList = [];
@@ -113,24 +114,24 @@ function recordScore() {
 };
 // start the quiz functions here
 function startQuiz() {
-    recordScore();
-    startScreen.style.display = "none";
-    quizScreen.style.display = "block";
+    recordScores();
+    startScreenEl.style.display = "none";
+    quizScreenEl.style.display = "block";
     runningQuestion = 0;
     timeLeft = totalTime;
     timeLeftEl.textContent = timeLeft;
     startTimer();
-    showQuestion();
+    renderQuestion();
 };
 
-// functionality to display the current question
-function showQuestion() {
-    const currentQuestion = questions[runningQuestion];
-    questionEl.textContent = currentQuestion.question;
-    answerA.textContent = currentQuestion.answerA;
-    answerB.textContent = currentQuestion.answerB;
-    answerC.textContent = currentQuestion.answerC;
-    answerD.textContent = currentQuestion.answerD;
+// renders questions to an empty div
+function renderQuestion() {
+    var currentQuestion = questions[runningQuestion];
+    questionEl.innerHTML = currentQuestion.question;
+    answerA.innerHTML = currentQuestion.answerA;
+    answerB.innerHTML = currentQuestion.answerB;
+    answerC.innerHTML = currentQuestion.answerC;
+    answerD.innerHTML = currentQuestion.answerD;
 }
 
 // timer function
@@ -147,8 +148,7 @@ function startTimer() {
 
 // user answers functionality
 function checkAnswer(answer) {
-    const currentQuestion = questions[runningQuestion];
-    if (answer === currentQuestion.answer) {
+    if (answer == questions[runningQuestion].answer) {
         // correct answer will add points
         score += 10;
     } else {
@@ -164,23 +164,26 @@ function checkAnswer(answer) {
         renderQuestion();
     } else {
         timerEl.textContent = "Ball Game Over",
-        quizScreen.style.display = "none";
-        highscoreScreen.style.display = "block";
+        quizScreenEl.style.display = "none";
+        highscoreScreenEl.style.display = "block";
         scoreRender();
     }
 }
+
 // renders the score page and the time left will be the score
 function scoreRender() {
     clearInterval(timeInterval);
-    startScreen.style.display = "none";
-    quizScreen.style.display = "none";
-    highscoreScreen.style.display = "block";
+    startScreenEl.style.display = "none";
+    quizScreenEl.style.display = "none";
+    highscoreScreenEl.style.display = "block";
+    scoreEl.style.display= "flex";
+    scoreEl.innerHTML = timeLeft;
 }
 
 // restarts the quiz
 function retry () {
-    highscoreScreen.style.display = "none";
-    startScreen.style.display = "block";
+    highscoreScreenEl.style.display = "none";
+    startScreenEl.style.display = "block";
     timeLeftEl.textContent = "";
     timerEl.textContent = "Time =";
     timerEl.appendChild(timeLeftEl);

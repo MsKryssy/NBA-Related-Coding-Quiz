@@ -1,5 +1,14 @@
+:root {
+    --a: lightsalmon;
+    --b: bisque;
+    --c: brown;
+    --d: burlywood;
+    --e: antiquewhite;
+    --f: black;
+}
+
 body {
-    background-color: lightsalmon;
+    background-color: var(--a);
     font-family: Arial, sans-serif;
     margin: 1px;
     padding: 1px;
@@ -12,7 +21,7 @@ header {
     display: block;
     flex-direction: row;
     justify-content: space-between;
-    background-color: bisque;
+    background-color: var(--b);
     width: 50%;
     text-align: center;
 }
@@ -30,7 +39,7 @@ header h1 {
 }
 
 #start-btn {
-    background-color: black;
+    background-color: var(--f);
     color: white;
     font-size: 20px;
     padding: 10px 20px;
@@ -41,16 +50,16 @@ header h1 {
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--f);
 }
 
 a:hover {
-    color:bisque;
+    color: var(--b);
     text-decoration: underline;
 }
 
 #highscores-link {
-    color: brown;
+    color: var(--c);
     text-decoration: none;
     padding: 5px 3px;
     border-style: double;
@@ -59,21 +68,21 @@ a:hover {
 }
 
 #highscores-link:hover {
-    color: burlywood;
+    color: var(--d);
     background-color: whitesmoke;
     border-radius: 5px;
     text-decoration: none;
-    border-color: brown;
+    border-color: var(--c);
 }
 
 #startScreen p {
-    color: black;
+    color: var(--f);
     padding: 15px 5px;
     font-size: 16px;
 }
 
 #startScreen button {
-    color: burlywood;
+    color: var(--d);
     padding: 4px;
     border-style: double;
     border-radius: 5px;
@@ -87,15 +96,15 @@ a:hover {
     flex-direction: row;
     align-items: center;
     padding: 5px;
-    color: antiquewhite;
+    color: var(--e);
 }
 
 #quizScreen h1 {
-    color: lightsalmon;
+    color: var(--a);
     padding: 5px 5px 9px 5px;
     border-style: solid;
     border-radius: 5px;
-    border-color: bisque;
+    border-color: var(--b);
     font-size: 30px;
 }
 
@@ -111,7 +120,7 @@ a:hover {
 }
 
 #timer, #timeLeft {
-    color: black;
+    color: var(--f);
     font-size: 15px;
 }
 
@@ -120,7 +129,7 @@ a:hover {
     width: 150px;
     text-align: center;
     background-color: white;
-    color: black;
+    color: var(--f);
     font-size: 18px;
     padding: 10px 20px;
     margin: 5px;
@@ -144,37 +153,37 @@ a:hover {
     font-size: 24px;
     margin-bottom: 20px;
     border-style: dotted;
-    border-color: antiquewhite;
+    border-color: var(--e);
     border-radius: 10px;
     margin: 10px 0px 10px 0px;
     padding: 2px 5px 3px 5px;
 }
 
 #inputHead {
-    color: black;
+    color: var(--f);
     padding: 0px 0px 8px 0px;
 }
 
 #highscoreScreen input {
-    background-color: lightsalmon;
-    color: bisque;
+    background-color: var(--a);
+    color: var(--b);
     width: 50px;
     margin: 0px 0px 8px 0px;
 }
 
 #highscoreScreen div button {
     border-radius: 5px;
-    border-color: burlywood;
+    border-color: var(--d);
     border-style: solid;
 }
 
 #highscoreScreen div button:active {
-    border-color: black;
+    border-color: var(--f);
 }
 
 #retry,
 #submitScore {
-    background-color: black;
+    background-color: var(--f);
     color: white;
     font-size: 20px;
     padding: 10px 20px;
@@ -186,14 +195,14 @@ a:hover {
 
 #retry {
     background-color: white;
-    color:black;
+    color: var(--f);
 }
 
 #scoreList {
     margin: 5px;
     font-size: 18px;
     list-style: none;
-    color: black;
+    color: var(--f);
 }
 
 #scoreList li {
@@ -204,7 +213,7 @@ a:hover {
 #hsLink {
     font-size: 20px;
     margin: 5px;
-    color: brown;
+    color: var(--c);
     text-decoration: none;
 }
 
